@@ -11,12 +11,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     /// The collection view that displays the dog images.
     @IBOutlet weak var collectionView: UICollectionView!
+    
     /// The visual effect view that provides a blur effect when an image is displayed in full screen.
     @IBOutlet weak var blurEffectView: UIVisualEffectView!
+    
     /// The image view that displays the selected dog image in full screen.
     @IBOutlet weak var fullScreenImageView: UIImageView!
+    
     /// The view model that manages fetching and storing dog images.
     let viewModel = DogViewModel()
+    
     /// A tap gesture recognizer for dismissing the full screen image view.
     var tapGestureRecognizer: UITapGestureRecognizer!
     
@@ -48,11 +52,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     /// Creates the compositional layout for the collection view.
-    ///
     /// This method defines the layout for the collection view using a compositional layout
     /// that supports different item sizes and group configurations.
-    ///
     /// - Returns: A `UICollectionViewLayout` object that defines the collection view layout.
+
     func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
             return self.createSectionLayout()
@@ -61,46 +64,68 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     /// Creates the section layout for the compositional layout.
-    ///
     /// This method defines the item sizes and group configurations for the section layout,
     /// including small, medium, and large items and groups.
-    ///
     /// - Returns: A `NSCollectionLayoutSection` object that defines the section layout.
+
     func createSectionLayout() -> NSCollectionLayoutSection {
         // Item sizes
         let smallItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                                       heightDimension: .fractionalHeight(1.0))
+                                                   heightDimension: .fractionalHeight(1.0))
+        
         let smallItem = NSCollectionLayoutItem(layoutSize: smallItemSize)
-        smallItem.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
+        
+        smallItem.contentInsets = NSDirectionalEdgeInsets(top: 1,
+                                                          leading: 1,
+                                                          bottom: 1,
+                                                          trailing: 1)
             
         let mediumItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                        heightDimension: .fractionalHeight(0.5))
+                                                    heightDimension: .fractionalHeight(0.5))
         let mediumItem = NSCollectionLayoutItem(layoutSize: mediumItemSize)
-        mediumItem.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
+        
+        mediumItem.contentInsets = NSDirectionalEdgeInsets(top: 1,
+                                                           leading: 1,
+                                                           bottom: 1,
+                                                           trailing: 1)
             
         let largeItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .fractionalHeight(1.0))
+                                                   heightDimension: .fractionalHeight(1.0))
+        
         let largeItem = NSCollectionLayoutItem(layoutSize: largeItemSize)
-        largeItem.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
+        
+        largeItem.contentInsets = NSDirectionalEdgeInsets(top: 1,
+                                                          leading: 1,
+                                                          bottom: 1,
+                                                          trailing: 1)
             
         // Groups
         let smallGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                        heightDimension: .fractionalWidth(0.5))
-        let smallGroup = NSCollectionLayoutGroup.horizontal(layoutSize: smallGroupSize, subitems: [smallItem, smallItem])
+                                                    heightDimension: .fractionalWidth(0.5))
+        
+        let smallGroup = NSCollectionLayoutGroup.horizontal(layoutSize: smallGroupSize,
+                                                            subitems: [smallItem, smallItem])
             
         let mediumGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                                         heightDimension: .fractionalWidth(1.0))
-        let mediumGroup = NSCollectionLayoutGroup.vertical(layoutSize: mediumGroupSize, subitems: [mediumItem, mediumItem])
+                                                     heightDimension: .fractionalWidth(1.0))
+        
+        let mediumGroup = NSCollectionLayoutGroup.vertical(layoutSize: mediumGroupSize, 
+                                                           subitems: [mediumItem, mediumItem])
             
         let mixedGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                        heightDimension: .fractionalWidth(1.0))
-        let mixedGroup = NSCollectionLayoutGroup.horizontal(layoutSize: mixedGroupSize, subitems: [largeItem, mediumGroup])
+                                                    heightDimension: .fractionalWidth(1.0))
+        
+        let mixedGroup = NSCollectionLayoutGroup.horizontal(layoutSize: mixedGroupSize, 
+                                                            subitems: [largeItem, mediumGroup])
             
         let sectionGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                          heightDimension: .estimated(400))
-        let sectionGroup = NSCollectionLayoutGroup.vertical(layoutSize: sectionGroupSize, subitems: [smallGroup, smallGroup, mixedGroup, smallGroup])
+                                                      heightDimension: .estimated(400))
+        
+        let sectionGroup = NSCollectionLayoutGroup.vertical(layoutSize: sectionGroupSize, 
+                                                            subitems: [smallGroup, smallGroup, mixedGroup, smallGroup])
             
         let section = NSCollectionLayoutSection(group: sectionGroup)
+        
         return section
     }
     
@@ -110,7 +135,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     /// Returns the cell for the item at the specified index path.
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) ->              UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DogCell", for: indexPath) as! DogCollectionViewCell
         let imageUrl = viewModel.images[indexPath.item]
         if let url = URL(string: imageUrl) {
@@ -127,6 +153,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     /// Handles the selection of an item in the collection view.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let imageUrl = viewModel.images[indexPath.item]
             if let url = URL(string: imageUrl) {
                 DispatchQueue.global().async {

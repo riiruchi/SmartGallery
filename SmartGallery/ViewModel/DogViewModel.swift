@@ -11,6 +11,7 @@ import Foundation
 /// dog images. It provides a method to fetch images from a remote API and
 /// stores the image URLs in an array.
 class DogViewModel {
+    
     /// An array of image URLs.
     var images: [String] = []
     
@@ -27,10 +28,15 @@ class DogViewModel {
                 DispatchQueue.main.async {
                         completion()
                 }
+                
             } catch {
                 print("Failed to decode JSON:", error)
                }
+            
             }
-        }.resume()
+            
+        } .resume()
+        
     }
+    
 }
