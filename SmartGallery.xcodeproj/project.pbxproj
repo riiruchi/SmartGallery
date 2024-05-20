@@ -12,7 +12,7 @@
 		18FC76182BFBB00A00DFC8D9 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 18FC76172BFBB00A00DFC8D9 /* Base */; };
 		18FC761A2BFBB00C00DFC8D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18FC76192BFBB00C00DFC8D9 /* Assets.xcassets */; };
 		18FC761D2BFBB00C00DFC8D9 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 18FC761C2BFBB00C00DFC8D9 /* Base */; };
-		18FC76262BFBB50E00DFC8D9 /* DogImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC76252BFBB50E00DFC8D9 /* DogImageResponse.swift */; };
+		18FC76262BFBB50E00DFC8D9 /* ApiImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC76252BFBB50E00DFC8D9 /* ApiImageResponse.swift */; };
 		18FC76292BFBB53100DFC8D9 /* DogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC76282BFBB53100DFC8D9 /* DogViewModel.swift */; };
 		18FC762C2BFBB56C00DFC8D9 /* DogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC762B2BFBB56C00DFC8D9 /* DogCollectionViewCell.swift */; };
 		18FC762F2BFBBCD400DFC8D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC762E2BFBBCD400DFC8D9 /* ViewController.swift */; };
@@ -26,7 +26,7 @@
 		18FC76192BFBB00C00DFC8D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18FC761C2BFBB00C00DFC8D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18FC761E2BFBB00C00DFC8D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18FC76252BFBB50E00DFC8D9 /* DogImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageResponse.swift; sourceTree = "<group>"; };
+		18FC76252BFBB50E00DFC8D9 /* ApiImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiImageResponse.swift; sourceTree = "<group>"; };
 		18FC76282BFBB53100DFC8D9 /* DogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogViewModel.swift; sourceTree = "<group>"; };
 		18FC762B2BFBB56C00DFC8D9 /* DogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FC762E2BFBBCD400DFC8D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		18FC76242BFBB4FF00DFC8D9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				18FC76252BFBB50E00DFC8D9 /* DogImageResponse.swift */,
+				18FC76252BFBB50E00DFC8D9 /* ApiImageResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 				18FC762C2BFBB56C00DFC8D9 /* DogCollectionViewCell.swift in Sources */,
 				18FC76112BFBB00A00DFC8D9 /* AppDelegate.swift in Sources */,
 				18FC76292BFBB53100DFC8D9 /* DogViewModel.swift in Sources */,
-				18FC76262BFBB50E00DFC8D9 /* DogImageResponse.swift in Sources */,
+				18FC76262BFBB50E00DFC8D9 /* ApiImageResponse.swift in Sources */,
 				18FC76132BFBB00A00DFC8D9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
