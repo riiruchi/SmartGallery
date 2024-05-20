@@ -8,10 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+
+    @IBOutlet weak var fullScreenImageView: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     let viewModel = DogViewModel()
-
-    @IBOutlet weak var collectionView: UICollectionView!
+    var tapGestureRecognizer: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         viewModel.fetchImages {
             self.collectionView.reloadData()
         }
+        
+        // Initialize tap gesture recognizer
+                tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+                fullScreenImageView.addGestureRecognizer(tapGestureRecognizer)
+                fullScreenImageView.isUserInteractionEnabled = true
+                fullScreenImageView.isHidden = true
     }
+    
+    @objc func handleTap() {
+           fullScreenImageView.isHidden = true
+       }
     
     func createLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
@@ -61,4 +73,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             }
             return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let imageUrl = viewModel.images[indexPath.item]
+            if let url = URL(string: imageUrl) {
+                DispatchQueue.global().async {
+                    if let data = try? Data(contentsOf: url) {
+                        DispatchQueue.main.async {
+                            self.fullScreenImageView.image = UIImage(data: data)
+                            self.fullScreenImageView.isHidden = false
+                        }
+                    }
+                }
+            }
+        }
 }
