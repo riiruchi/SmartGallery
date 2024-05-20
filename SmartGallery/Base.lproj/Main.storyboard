@@ -28,33 +28,21 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DogCell" id="Fg9-KK-4nQ" customClass="DogCollectionViewCell" customModule="SmartGallery" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="118" height="145.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="119.99999999999997" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Lvy-ko-GDk">
-                                            <rect key="frame" x="0.0" y="0.0" width="118" height="145.33333333333334"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119.99999999999997" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Die-c5-qVy">
-                                                    <rect key="frame" x="38" y="115" width="42" height="20.333333333333343"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cyR-UI-5Np">
-                                                    <rect key="frame" x="8" y="8" width="102" height="99"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="99" id="JaL-gt-k1C"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Die-c5-qVy" firstAttribute="leading" secondItem="Lvy-ko-GDk" secondAttribute="leading" constant="38" id="7C1-ay-gjf"/>
-                                                <constraint firstItem="Die-c5-qVy" firstAttribute="top" secondItem="cyR-UI-5Np" secondAttribute="bottom" constant="8" symbolic="YES" id="HBO-JA-Agi"/>
-                                                <constraint firstItem="cyR-UI-5Np" firstAttribute="leading" secondItem="Lvy-ko-GDk" secondAttribute="leadingMargin" id="LNp-aU-jxb"/>
-                                                <constraint firstItem="cyR-UI-5Np" firstAttribute="top" secondItem="Lvy-ko-GDk" secondAttribute="top" constant="8" id="RJN-aS-7kT"/>
-                                                <constraint firstItem="Die-c5-qVy" firstAttribute="centerX" secondItem="Lvy-ko-GDk" secondAttribute="centerX" id="bmZ-5j-ufL"/>
-                                                <constraint firstItem="cyR-UI-5Np" firstAttribute="centerX" secondItem="Lvy-ko-GDk" secondAttribute="centerX" id="pIi-un-S0m"/>
-                                                <constraint firstAttribute="bottom" secondItem="Die-c5-qVy" secondAttribute="bottom" constant="10" id="tuc-oR-eJC"/>
+                                                <constraint firstAttribute="bottom" secondItem="cyR-UI-5Np" secondAttribute="bottom" id="Cpg-JC-s14"/>
+                                                <constraint firstItem="cyR-UI-5Np" firstAttribute="leading" secondItem="Lvy-ko-GDk" secondAttribute="leading" id="aqd-7U-ABW"/>
+                                                <constraint firstItem="cyR-UI-5Np" firstAttribute="top" secondItem="Lvy-ko-GDk" secondAttribute="top" id="gyT-BI-giL"/>
+                                                <constraint firstAttribute="trailing" secondItem="cyR-UI-5Np" secondAttribute="trailing" id="jSX-ka-3Ef"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
