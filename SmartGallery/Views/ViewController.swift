@@ -9,8 +9,9 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    @IBOutlet weak var fullScreenImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var blurEffectView: UIVisualEffectView!
+    @IBOutlet weak var fullScreenImageView: UIImageView!
     
     let viewModel = DogViewModel()
     var tapGestureRecognizer: UITapGestureRecognizer!
@@ -30,10 +31,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 fullScreenImageView.addGestureRecognizer(tapGestureRecognizer)
                 fullScreenImageView.isUserInteractionEnabled = true
                 fullScreenImageView.isHidden = true
+        blurEffectView.isHidden = true
     }
     
     @objc func handleTap() {
            fullScreenImageView.isHidden = true
+        blurEffectView.isHidden = true
        }
     
     func createLayout() -> UICollectionViewLayout {
@@ -81,6 +84,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                     if let data = try? Data(contentsOf: url) {
                         DispatchQueue.main.async {
                             self.fullScreenImageView.image = UIImage(data: data)
+                            self.blurEffectView.isHidden = false
                             self.fullScreenImageView.isHidden = false
                         }
                     }
